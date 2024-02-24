@@ -27,12 +27,14 @@ const theme = createTheme({
     body1: {
       fontSize: "15px",
     },
-    h5: { fontWeight: 600 },
+    subtitle1: { fontSize: "15px", fontWeight: 600 },
     h6: {
-      fontWeight: 400,
+      fontSize: "15px",
+      fontWeight: 600,
     },
     body2: {
-      fontWeight: 400,
+      fontSize: "15px",
+      fontWeight: 200,
     },
   },
 });

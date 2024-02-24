@@ -7,9 +7,6 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <Container
       sx={{
-        // mt: 4,
-        // mb: 4,
-        // p: 3,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -19,7 +16,7 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       }}
     >
       <Grid container direction='column' textAlign='center'>
-        <Typography variant='h6'>CSS, Javascript, API</Typography>
+        <Typography variant='body1'>CSS, Javascript, API</Typography>
         <Typography variant='h5'>Contacts Application</Typography>
         <Typography variant='h6'>
           View basic info of contacts in a 3x2 layout. <br />
@@ -29,7 +26,6 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       </Grid>
       <MainContent
         sx={{
-          // width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -41,7 +37,11 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       <Box component='footer' sx={{ mt: 4, p: 2, textAlign: "center" }}>
         <Typography variant='body2' color='text.secondary'>
           challenge by{" "}
-          <Link target='_blank' href='https://www.speedcast.com/'>
+          <Link
+            color='hsl(234, 12%, 34%)'
+            target='_blank'
+            href='https://www.speedcast.com/'
+          >
             speedcast
           </Link>
         </Typography>
