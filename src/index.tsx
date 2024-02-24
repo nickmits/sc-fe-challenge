@@ -10,6 +10,17 @@ const root = ReactDOM.createRoot(
 );
 
 const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    `,
+    },
+  },
   palette: {
     primary: {
       main: "hsl(180, 62%, 55%)",

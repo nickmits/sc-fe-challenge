@@ -1,24 +1,25 @@
 import React from "react";
 import { ReactNode } from "react";
 import { Footer } from "./Footer";
-import { MainContent, MainLayoutContainer } from "../styled";
 import Header from "./Header";
+import { Grid } from "@mui/material";
 
 const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <MainLayoutContainer>
+    <Grid
+      minHeight={"95vh"}
+      alignItems={"center"}
+      display={"flex"}
+      justifyContent='center'
+      container
+      sx={{ backgroundColor: (theme) => theme.palette.background.default }}
+    >
       <Header />
-      <MainContent
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <Grid display={"flex"} justifyContent={"center"} container>
         {children}
-      </MainContent>
+      </Grid>
       <Footer />
-    </MainLayoutContainer>
+    </Grid>
   );
 };
 

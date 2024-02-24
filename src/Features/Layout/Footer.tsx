@@ -1,8 +1,8 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 
 export const Footer = () => {
   return (
-    <Box component='footer' sx={{ mt: 4, p: 2, textAlign: "center" }}>
+    <Grid display={"flex"} justifyContent={"center"} container>
       <Typography variant='body2' color='text.secondary'>
         challenge by{" "}
         <Link
@@ -13,6 +13,6 @@ export const Footer = () => {
           speedcast
         </Link>
       </Typography>
-    </Box>
+    </Grid>
   );
 };

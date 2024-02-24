@@ -3,8 +3,8 @@ import {
   Button,
   Card,
   CardContent,
-  Container,
   Grid,
+  Typography,
   styled,
 } from "@mui/material";
 
@@ -13,24 +13,24 @@ export const StyledCard = styled(Card)(({ theme }) => ({
     transform: "translateY(-5px)",
     transition: "transform 0.3s",
   },
-  maxWidth: 375,
   position: "relative",
   borderTop: `2px solid ${theme.palette.primary.main}`,
+  width: "100%",
+  maxWidth: "100%",
 }));
 
 export const StyledButton = styled(Button)({
   width: 40,
   height: 40,
-  bottom: 16,
-  right: 16,
+  bottom: 3,
+  right: -11,
   objectFit: "contain",
   position: "absolute",
 });
 
 export const StyledCardContent = styled(CardContent)({
-  paddingBottom: "76px",
-  height: "100px",
-  width: "500px",
+  height: "150px",
+  width: "300px",
 });
 
 export const StyledBoxModal = styled(Box)(({ theme }) => ({
@@ -51,15 +51,23 @@ export const ModalGeneralInfo = styled(Grid)(({ theme }) => ({
   paddingBottom: "20px",
 }));
 
-export const MainLayoutContainer = styled(Container)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: theme.palette.background.default,
-  borderRadius: 2,
-}));
+interface StyledCardsProps {
+  isMobile?: boolean;
+}
 
-export const MainContent = styled(Grid)({
-  height: "70vh",
-});
+export const StyledCards = styled(Grid)<StyledCardsProps>(
+  ({ theme, isMobile }) => ({
+    width: isMobile ? "80%" : "60%",
+  })
+);
+
+export const StyledBreakWords = styled(Grid)<StyledCardsProps>(
+  ({ theme, isMobile }) => ({
+    overflowWrap: isMobile ? "break-word" : "inherit",
+    inlineSize: isMobile ? "40px" : "200px",
+  })
+);
+
+export const BoldTypography = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightBold,
+}));
