@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import { ICard } from "../../interfaces/card";
 import { StyledButton, StyledCard, StyledCardContent } from "../styled";
-import { CardMedia } from "@mui/material";
+import { CardMedia, Grid } from "@mui/material";
 import ModalCard from "../Modal/ModalCard";
 
 const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
@@ -14,15 +14,38 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
     <>
       <StyledCard>
         <StyledCardContent>
-          <Typography gutterBottom variant='h6' component='div'>
+          <Typography
+            sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+            gutterBottom
+            variant='h6'
+          >
             {card.name}
           </Typography>
-          <Typography variant='body2' color='text.secondary'>
-            company: {card.company.name}
-          </Typography>
-          <Typography variant='body2' color='text.secondary'>
-            email: {card.email}
-          </Typography>
+          <Grid container>
+            <Typography variant='body2' color='text.secondary'>
+              company:
+            </Typography>
+
+            <Typography
+              variant='body2'
+              color='text.secondary'
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+            >
+              {card.company.name}
+            </Typography>
+          </Grid>
+          <Grid container>
+            <Typography variant='body2' color='text.secondary'>
+              email:
+            </Typography>
+            <Typography
+              variant='body2'
+              color='text.secondary'
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+            >
+              {card.email}
+            </Typography>
+          </Grid>
         </StyledCardContent>
         <StyledButton onClick={handleOpen} aria-label='view details'>
           <CardMedia component='img' image='/icon-supervisor.svg' />

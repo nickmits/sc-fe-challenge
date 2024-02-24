@@ -20,14 +20,22 @@ const ModalCard: React.FC<{
         <ModalGeneralInfo container>
           <Grid container flexDirection={"column"} item xs={6}>
             <Typography
-              sx={{ marginTop: "20px", marginLeft: "20px" }}
+              sx={{
+                marginTop: "20px",
+                marginLeft: "20px",
+                fontWeight: (theme) => theme.typography.fontWeightBold,
+              }}
               id='modal-title'
               variant='h6'
+              color='text.primary'
             >
               {card.name}
             </Typography>
             <Typography
-              sx={{ marginLeft: "20px" }}
+              sx={{
+                marginLeft: "20px",
+                fontWeight: (theme) => theme.typography.fontWeightRegular,
+              }}
               id='modal-title'
               variant='body1'
             >
@@ -55,24 +63,84 @@ const ModalCard: React.FC<{
           paddingRight={"40px"}
         >
           <Grid container flexDirection={"column"} item xs={3}>
-            <Typography variant='subtitle1'>Username:</Typography>
-            <Typography variant='body1'>{card.username}</Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+              variant='body1'
+            >
+              Username:
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.username}
+            </Typography>
           </Grid>
           <Grid container flexDirection={"column"} item xs={3}>
-            <Typography variant='subtitle1'>Address:</Typography>
-            <Typography variant='body1'>{card.address.street}</Typography>
-            <Typography variant='body1'>{card.address.city}</Typography>
-            <Typography variant='body1'>{card.address.suite}</Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+              variant='body1'
+            >
+              Address:
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.address.street}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.address.city}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.address.suite}
+            </Typography>
           </Grid>
           <Grid container flexDirection={"column"} item xs={3}>
-            <Typography variant='subtitle1'>Phone:</Typography>
-            <Typography variant='body1'>{card.phone}</Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+              variant='body1'
+            >
+              Phone:
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.phone}
+            </Typography>
           </Grid>
           <Grid container flexDirection={"column"} item xs={3}>
-            <Typography variant='subtitle1'>Email:</Typography>
-            <Typography variant='body1'>{card.email}</Typography>
-            <Typography variant='subtitle1'>Website:</Typography>
-            <Typography variant='body1'>{card.website}</Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+              variant='body1'
+            >
+              Email:
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.email}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+              variant='body1'
+            >
+              Website:
+            </Typography>
+            <Typography
+              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
+              variant='body1'
+            >
+              {card.website}
+            </Typography>
           </Grid>
         </Grid>
       </StyledBoxModal>
