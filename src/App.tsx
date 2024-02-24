@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import MainLayout from "./components/MainLayout";
+import MainLayout from "./Features/Layout/MainLayout";
 import Cards from "./Features/Card/Cards";
 
 function App() {

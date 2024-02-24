@@ -14,7 +14,7 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
     <>
       <StyledCard>
         <StyledCardContent>
-          <Typography gutterBottom variant='h5' component='div'>
+          <Typography gutterBottom variant='h6' component='div'>
             {card.name}
           </Typography>
           <Typography variant='body2' color='text.secondary'>

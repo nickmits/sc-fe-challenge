@@ -1,20 +1,12 @@
 import React from "react";
 import { ReactNode } from "react";
-import { Box, Container, Grid, Link, Typography } from "@mui/material";
-import { MainContent } from "./styled";
+import { Box, Grid, Link, Typography } from "@mui/material";
+import { Footer } from "./Footer";
+import { MainContent, MainLayoutContainer } from "../styled";
 
 const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(0,0,0,0.1)",
-        borderRadius: 2,
-      }}
-    >
+    <MainLayoutContainer>
       <Grid container direction='column' textAlign='center'>
         <Typography variant='body1'>CSS, Javascript, API</Typography>
         <Typography variant='h5'>Contacts Application</Typography>
@@ -33,20 +25,8 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       >
         {children}
       </MainContent>
-
-      <Box component='footer' sx={{ mt: 4, p: 2, textAlign: "center" }}>
-        <Typography variant='body2' color='text.secondary'>
-          challenge by{" "}
-          <Link
-            color='hsl(234, 12%, 34%)'
-            target='_blank'
-            href='https://www.speedcast.com/'
-          >
-            speedcast
-          </Link>
-        </Typography>
-      </Box>
-    </Container>
+      <Footer />
+    </MainLayoutContainer>
   );
 };
 

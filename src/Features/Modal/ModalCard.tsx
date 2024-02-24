@@ -1,26 +1,14 @@
 import React from "react";
-import { Modal, Box, Typography, IconButton, Grid } from "@mui/material";
+import { Modal, Typography, IconButton, Grid } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { ICard } from "../../interfaces/card";
+import { ModalGeneralInfo, StyledBoxModal } from "../styled";
 
 const ModalCard: React.FC<{
   card: ICard;
   openModal: boolean;
   handleCloseModal: () => void;
 }> = ({ card, openModal, handleCloseModal }) => {
-  const style = {
-    position: "absolute",
-    top: "20%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 600,
-    border: "2px solid #000",
-    boxShadow: 24,
-    overflowY: "auto",
-    bgcolor: "background.paper",
-    borderBottom: "5px solid hsl(180, 62%, 55%)",
-  };
-
   return (
     <Modal
       open={openModal}
@@ -28,15 +16,8 @@ const ModalCard: React.FC<{
       aria-labelledby='modal-title'
       aria-describedby='modal-description'
     >
-      <Box sx={style}>
-        <Grid
-          sx={{
-            backgroundColor: "rgba(0,0,0,0.02)",
-            marginBottom: "20px",
-            paddingBottom: "20px",
-          }}
-          container
-        >
+      <StyledBoxModal>
+        <ModalGeneralInfo container>
           <Grid container flexDirection={"column"} item xs={6}>
             <Typography
               sx={{ marginTop: "20px", marginLeft: "20px" }}
@@ -64,7 +45,7 @@ const ModalCard: React.FC<{
               <CloseIcon sx={{ width: "30px" }} />
             </IconButton>
           </Grid>
-        </Grid>
+        </ModalGeneralInfo>
         <Grid
           paddingBottom={"30px"}
           paddingTop={"10px"}
@@ -94,7 +75,7 @@ const ModalCard: React.FC<{
             <Typography variant='body1'>{card.website}</Typography>
           </Grid>
         </Grid>
-      </Box>
+      </StyledBoxModal>
     </Modal>
   );
 };
