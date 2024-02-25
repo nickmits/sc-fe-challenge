@@ -17,6 +17,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   borderTop: `2px solid ${theme.palette.primary.main}`,
   width: "100%",
   maxWidth: "100%",
+  height: "auto",
 }));
 
 export const StyledButton = styled(Button)({
@@ -29,8 +30,9 @@ export const StyledButton = styled(Button)({
 });
 
 export const StyledCardContent = styled(CardContent)({
-  height: "150px",
+  height: "auto",
   width: "300px",
+  minHeight: "100px",
 });
 
 export const StyledBoxModal = styled(Box)(({ theme }) => ({
@@ -38,7 +40,7 @@ export const StyledBoxModal = styled(Box)(({ theme }) => ({
   top: "20%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: "100%",
   border: "2px solid #000",
   overflowY: "auto",
   backgroundColor: theme.palette.background.paper,
@@ -64,10 +66,65 @@ export const StyledCards = styled(Grid)<StyledCardsProps>(
 export const StyledBreakWords = styled(Grid)<StyledCardsProps>(
   ({ theme, isMobile }) => ({
     overflowWrap: isMobile ? "break-word" : "inherit",
-    inlineSize: isMobile ? "40px" : "200px",
+    display: isMobile ? "block" : "flex",
   })
 );
 
 export const BoldTypography = styled(Typography)(({ theme }) => ({
   fontWeight: theme.typography.fontWeightBold,
 }));
+
+export const CardContentTypography = styled(BoldTypography)<{
+  isMobile: boolean;
+}>`
+  ${({ isMobile }) => `
+    word-break: ${isMobile ? "break-all" : "normal"};
+    @media (max-width: 280px) and (min-width: 203px) {
+      word-break: break-all;
+      width: 100px;
+    }
+
+    @media (max-width: 202px) and (min-width: 163px) {
+      word-break: break-all;
+      width: 70px;
+    }
+
+    @media (max-width: 162px) and (min-width: 137px) {
+      word-break: break-all;
+      width: 50px;
+    }
+
+    @media (max-width: 136px) {
+      word-break: break-all;
+      width: 30px;
+    }
+  `}
+`;
+
+export const EmailTypography = styled(CardContentTypography)<{
+  isMobile: boolean;
+}>`
+  ${({ isMobile }) => `
+    word-break: ${isMobile ? "break-all" : "normal"};
+    @media (max-width: 1000px) and (min-width: 900px) {
+      word-break: break-all;
+      width: 140px ;
+    }
+    @media (max-width: 624px) and (min-width: 600px) {
+      word-break: break-all;
+      width: 150px ;
+    }
+  `}
+`;
+
+export const CompanyTypography = styled(CardContentTypography)<{
+  isMobile: boolean;
+}>`
+  ${({ isMobile }) => `
+    word-break: ${isMobile ? "break-all" : "normal"};
+    @media (max-width: 920px) and (min-width: 900px) {
+      word-break: break-all;
+      width: 130px ;
+    }
+  `}
+`;

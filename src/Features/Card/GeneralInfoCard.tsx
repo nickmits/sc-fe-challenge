@@ -3,6 +3,9 @@ import Typography from "@mui/material/Typography";
 import { ICard } from "../../interfaces/card";
 import {
   BoldTypography,
+  CardContentTypography,
+  CompanyTypography,
+  EmailTypography,
   StyledBreakWords,
   StyledButton,
   StyledCard,
@@ -20,29 +23,41 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
   return (
     <StyledCard>
       <StyledCardContent>
-        <Typography
-          sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
-          gutterBottom
-          variant='h6'
-        >
+        <CardContentTypography isMobile={isMobile} gutterBottom variant='h6'>
           {card.name}
-        </Typography>
+        </CardContentTypography>
         <StyledBreakWords isMobile={isMobile} container>
-          <Typography variant='body2' color='text.secondary'>
-            company:
-          </Typography>
-
-          <BoldTypography variant='body2' color='text.secondary'>
-            {card.company.name}
-          </BoldTypography>
+          <Grid item xs={12} md={"auto"}>
+            <Typography variant='body2' color='text.secondary'>
+              company:
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md>
+            <CompanyTypography
+              isMobile={isMobile}
+              variant='body2'
+              color='text.secondary'
+            >
+              {card.company.name}
+            </CompanyTypography>
+          </Grid>
         </StyledBreakWords>
-        <StyledBreakWords isMobile={isMobile} container>
-          <Typography variant='body2' color='text.secondary'>
-            email:
-          </Typography>
-          <BoldTypography variant='body2' color='text.secondary'>
-            {card.email}
-          </BoldTypography>
+
+        <StyledBreakWords container>
+          <Grid item xs={12} md={"auto"}>
+            <Typography variant='body2' color='text.secondary'>
+              email:
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md>
+            <EmailTypography
+              isMobile={isMobile}
+              variant='body2'
+              color='text.secondary'
+            >
+              {card.email}
+            </EmailTypography>
+          </Grid>
         </StyledBreakWords>
       </StyledCardContent>
       <StyledButton onClick={handleOpen} aria-label='view details'>
