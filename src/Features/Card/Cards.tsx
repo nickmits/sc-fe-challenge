@@ -4,7 +4,7 @@ import GeneralInfoCard from "./GeneralInfoCard";
 import Spinner from "../../components/Spinner";
 import SnackBarError from "../../components/SnackBarError";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { StyledCards } from "../styled";
+import { StyleGeneralCard, StyledCards } from "../styled";
 import literals from "../../stubs/literals.json";
 
 const Cards = () => {
@@ -20,16 +20,9 @@ const Cards = () => {
       <StyledCards isMobile={!isTablet} container spacing={2}>
         {cards ? (
           cards.map((card) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              key={card.id}
-              style={{ marginBottom: 8 }}
-            >
+            <StyleGeneralCard item xs={12} sm={6} md={4} key={card.id}>
               <GeneralInfoCard card={card} />
-            </Grid>
+            </StyleGeneralCard>
           ))
         ) : (
           <Grid container justifyContent='center'>

@@ -9,8 +9,9 @@ import {
   StyledButton,
   StyledCard,
   StyledCardContent,
+  StyledCardMedia,
 } from "../styled";
-import { CardMedia, Grid, useMediaQuery } from "@mui/material";
+import { Grid, useMediaQuery } from "@mui/material";
 import ModalCard from "../Modal/ModalCard";
 import literals from "../../stubs/literals.json";
 
@@ -23,7 +24,7 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
   return (
     <StyledCard>
       <StyledCardContent>
-        <CardContentTypography isMobile={isMobile} gutterBottom variant='h6'>
+        <CardContentTypography gutterBottom variant='h6'>
           {card.name}
         </CardContentTypography>
         <StyledBreakWords isMobile={isMobile} container>
@@ -33,11 +34,7 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
             </Typography>
           </Grid>
           <Grid item xs={12} md>
-            <CompanyTypography
-              isMobile={isMobile}
-              variant='body2'
-              color='text.secondary'
-            >
+            <CompanyTypography variant='body2' color='text.secondary'>
               {card.company.name}
             </CompanyTypography>
           </Grid>
@@ -50,22 +47,14 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
             </Typography>
           </Grid>
           <Grid item xs={12} md>
-            <EmailTypography
-              isMobile={isMobile}
-              variant='body2'
-              color='text.secondary'
-            >
+            <EmailTypography variant='body2' color='text.secondary'>
               {card.email}
             </EmailTypography>
           </Grid>
         </StyledBreakWords>
       </StyledCardContent>
       <StyledButton onClick={handleOpen} aria-label='view details'>
-        <CardMedia
-          sx={{ width: "30px" }}
-          component='img'
-          image='/icon-supervisor.svg'
-        />
+        <StyledCardMedia component='img' image='/icon-supervisor.svg' />
       </StyledButton>
       <ModalCard
         card={card}

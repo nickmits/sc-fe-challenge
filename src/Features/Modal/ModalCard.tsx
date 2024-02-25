@@ -1,8 +1,17 @@
 import React from "react";
-import { Modal, Typography, IconButton, Grid } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import { Modal, IconButton, Grid } from "@mui/material";
 import { ICard } from "../../interfaces/card";
-import { ModalGeneralInfo, StyledBoxModal } from "../styled";
+import {
+  CardNameContentModal,
+  CardNameModal,
+  CloseIconStyled,
+  IconCloseMargin,
+  ModalGeneralInfo,
+  StyledBoxModal,
+  TypographyBold,
+  TypographyLight,
+  UsernameModalTitle,
+} from "../styled";
 import literals from "../../stubs/literals.json";
 
 const ModalCard: React.FC<{
@@ -20,40 +29,23 @@ const ModalCard: React.FC<{
       <StyledBoxModal>
         <ModalGeneralInfo container>
           <Grid container flexDirection={"column"} item xs={6}>
-            <Typography
-              sx={{
-                marginTop: "20px",
-                marginLeft: "20px",
-                fontWeight: (theme) => theme.typography.fontWeightBold,
-              }}
-              id='modal-title'
-              variant='h6'
-              color='text.primary'
-            >
+            <CardNameModal id='modal-title' variant='h6' color='text.primary'>
               {card.name}
-            </Typography>
-            <Typography
-              sx={{
-                marginLeft: "20px",
-                fontWeight: (theme) => theme.typography.fontWeightRegular,
-              }}
-              id='modal-title'
-              variant='body1'
-            >
+            </CardNameModal>
+            <CardNameContentModal id='modal-title' variant='body1'>
               {card.company.name}
-            </Typography>
+            </CardNameContentModal>
           </Grid>
-          <Grid
-            sx={{ marginTop: "10px", paddingRight: "10px" }}
+          <CloseIconStyled
             item
             xs={6}
             display={"flex"}
             justifyContent={"flex-end"}
           >
             <IconButton aria-label='close' onClick={handleCloseModal}>
-              <CloseIcon sx={{ width: "30px" }} />
+              <IconCloseMargin />
             </IconButton>
-          </Grid>
+          </CloseIconStyled>
         </ModalGeneralInfo>
         <Grid
           paddingBottom={"30px"}
@@ -63,61 +55,28 @@ const ModalCard: React.FC<{
           container
         >
           <Grid container flexDirection={"column"} item xs={12} sm={6} md={3}>
-            <Typography
-              sx={{
-                textAlign: "center",
-                fontWeight: (theme) => theme.typography.fontWeightBold,
-              }}
-              variant='body1'
-            >
+            <UsernameModalTitle variant='body1'>
               {literals.sc_USERNAME}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
-              {card.username}
-            </Typography>
+            </UsernameModalTitle>
+            <TypographyLight variant='body1'>{card.username}</TypographyLight>
           </Grid>
           <Grid container flexDirection={"column"} item xs={12} sm={6} md={3}>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
-              variant='body1'
-            >
+            <TypographyBold variant='body1'>
               {literals.sc_ADDRESS}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
+            </TypographyBold>
+            <TypographyLight variant='body1'>
               {card.address.street}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
+            </TypographyLight>
+            <TypographyLight variant='body1'>
               {card.address.city}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
+            </TypographyLight>
+            <TypographyLight variant='body1'>
               {card.address.suite}
-            </Typography>
+            </TypographyLight>
           </Grid>
           <Grid container flexDirection={"column"} item xs={12} sm={6} md={3}>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
-              variant='body1'
-            >
-              {literals.sc_PHONE}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
-              {card.phone}
-            </Typography>
+            <TypographyBold variant='body1'>{literals.sc_PHONE}</TypographyBold>
+            <TypographyLight variant='body1'>{card.phone}</TypographyLight>
           </Grid>
           <Grid
             display={"flex"}
@@ -129,31 +88,14 @@ const ModalCard: React.FC<{
             sm={6}
             md={3}
           >
-            <Typography
-              textAlign={"center"}
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
-              variant='body1'
-            >
+            <TypographyBold textAlign={"center"} variant='body1'>
               {literals.sc_MAIL}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
-              {card.email}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
-              variant='body1'
-            >
+            </TypographyBold>
+            <TypographyLight variant='body1'>{card.email}</TypographyLight>
+            <TypographyBold variant='body1'>
               {literals.sc_WEBSITE}
-            </Typography>
-            <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
-              variant='body1'
-            >
-              {card.website}
-            </Typography>
+            </TypographyBold>
+            <TypographyLight variant='body1'>{card.website}</TypographyLight>
           </Grid>
         </Grid>
       </StyledBoxModal>

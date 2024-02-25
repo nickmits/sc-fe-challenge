@@ -3,10 +3,13 @@ import {
   Button,
   Card,
   CardContent,
+  CardMedia,
   Grid,
   Typography,
   styled,
+  CardMediaProps,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   "&:hover": {
@@ -85,32 +88,28 @@ export const ModalGeneralInfo = styled(Grid)(({ theme }) => ({
   paddingBottom: "20px",
 }));
 
-interface StyledCardsProps {
-  isMobile?: boolean;
-}
+export const StyledCards = styled(Grid, {
+  shouldForwardProp: (prop) => prop !== "isMobile",
+})<{ isMobile?: boolean }>(({ theme, isMobile }) => ({
+  width: isMobile ? "80%" : "60%",
+}));
 
-export const StyledCards = styled(Grid)<StyledCardsProps>(
-  ({ theme, isMobile }) => ({
-    width: isMobile ? "80%" : "60%",
-  })
-);
-
-export const StyledBreakWords = styled(Grid)<StyledCardsProps>(
-  ({ theme, isMobile }) => ({
-    overflowWrap: isMobile ? "break-word" : "inherit",
-    display: isMobile ? "block" : "flex",
-  })
-);
+export const StyledBreakWords = styled(Grid, {
+  shouldForwardProp: (prop) => prop !== "isMobile",
+})<{ isMobile?: boolean }>(({ theme, isMobile }) => ({
+  overflowWrap: isMobile ? "break-word" : "inherit",
+  display: isMobile ? "block" : "flex",
+}));
 
 export const BoldTypography = styled(Typography)(({ theme }) => ({
   fontWeight: theme.typography.fontWeightBold,
 }));
 
-export const CardContentTypography = styled(BoldTypography)<{
-  isMobile: boolean;
-}>`
-  ${({ isMobile }) => `
-    word-break: ${isMobile ? "break-all" : "normal"};
+export const CardContentTypography = styled(BoldTypography)`
+  ${() => `
+   @media (max-width: 350px){
+    word-break: break-all;
+  }
     @media (max-width: 280px) and (min-width: 203px) {
       word-break: break-all;
       width: 100px;
@@ -133,11 +132,12 @@ export const CardContentTypography = styled(BoldTypography)<{
   `}
 `;
 
-export const EmailTypography = styled(CardContentTypography)<{
-  isMobile: boolean;
-}>`
-  ${({ isMobile }) => `
-    word-break: ${isMobile ? "break-all" : "normal"};
+export const EmailTypography = styled(CardContentTypography)<{}>`
+  ${({}) => `
+    @media (max-width: 350px){
+    word-break: break-all;
+    }
+    
     @media (max-width: 1000px) and (min-width: 900px) {
       word-break: break-all;
       width: 140px ;
@@ -146,17 +146,85 @@ export const EmailTypography = styled(CardContentTypography)<{
       word-break: break-all;
       width: 150px ;
     }
+    @media (max-width: 690px) and (min-width: 624px) {
+      word-break: break-all;
+      width: 180px ;
+    }
   `}
 `;
 
-export const CompanyTypography = styled(CardContentTypography)<{
-  isMobile: boolean;
-}>`
-  ${({ isMobile }) => `
-    word-break: ${isMobile ? "break-all" : "normal"};
+export const CompanyTypography = styled(CardContentTypography)<{}>`
+  ${({}) => `
+  @media (max-width: 350px){
+    word-break: break-all;
+  }
+    
     @media (max-width: 920px) and (min-width: 900px) {
       word-break: break-all;
       width: 130px ;
     }
+    @media (max-width: 1000px) and (min-width: 920px) {
+      word-break: break-all;
+      width: 140px ;
+    }
   `}
 `;
+
+export const UsernameModalTitle = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightBold,
+  textAlign: "center",
+  [theme.breakpoints.between(900, 949)]: { width: "100px" },
+}));
+
+export const StyleGeneralCard = styled(Grid)({
+  marginBottom: 8,
+});
+
+export const StyledCardMedia = styled(CardMedia)<CardMediaProps>({
+  width: "30px",
+});
+
+export const HeaderBody = styled(Grid)(({ theme }) => ({
+  textAlign: "center",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+}));
+
+export const TypographyHeader = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightLight,
+  alignSelf: "center",
+  inlineSize: "430px",
+  overflowWrap: "break-word",
+}));
+
+export const TypographyBold = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightBold,
+}));
+
+export const TypographyRegular = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightRegular,
+}));
+
+export const CardNameModal = styled(Typography)(({ theme }) => ({
+  marginTop: "20px",
+  marginLeft: "20px",
+  fontWeight: theme.typography.fontWeightBold,
+}));
+
+export const CardNameContentModal = styled(TypographyRegular)({
+  marginLeft: "20px",
+});
+
+export const CloseIconStyled = styled(Grid)({
+  marginTop: "10px",
+  paddingRight: "10px",
+});
+
+export const TypographyLight = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightLight,
+}));
+
+export const IconCloseMargin = styled(CloseIcon)({
+  width: "30px",
+});
