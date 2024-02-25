@@ -59,23 +59,6 @@ export const StyledBoxModal = styled(Box)(({ theme }) => ({
       transform: "translate(-50%, -50%)",
     },
   },
-  // "@keyframes slideLeft": {
-  //   from: {
-  //     transform: "translateX(300%)",
-  //   },
-  // },
-
-  // "@keyframes slideRight": {
-  //   to: {
-  //     transform: "translateX(300%)",
-  //   },
-  // },
-
-  // "@keyframes shrink": {
-  //   "50%": {
-  //     transform: "scale(1,0)",
-  //   },
-  // },
 
   [theme.breakpoints.down("sm")]: { width: "70%", marginTop: "20%" },
   backgroundColor: theme.palette.background.paper,
