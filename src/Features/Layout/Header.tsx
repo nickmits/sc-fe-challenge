@@ -1,4 +1,5 @@
 import { Grid, Typography } from "@mui/material";
+import literals from "../../stubs/literals.json";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
           sx={{ fontWeight: (theme) => theme.typography.fontWeightRegular }}
           variant='body1'
         >
-          CSS, Javascript, API
+          {literals.sc_HEADER_1}
         </Typography>
       </Grid>
       <Grid item xs={12}>
@@ -16,7 +17,7 @@ const Header = () => {
           sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
           variant='h6'
         >
-          Contacts Application
+          {literals.sc_HEADER_2}
         </Typography>
       </Grid>
       <Grid
@@ -40,8 +41,7 @@ const Header = () => {
           variant='body2'
           color='text.secondary'
         >
-          View basic info of contacts in a 3x2 layout. Click on the magnifier
-          icon to open a modal and view detailed contact info contact.
+          {literals.sc_HEADER_3}
         </Typography>
       </Grid>
     </Grid>

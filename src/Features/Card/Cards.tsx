@@ -1,11 +1,11 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useCardsService } from "../../services/cards.service";
 import GeneralInfoCard from "./GeneralInfoCard";
 import Spinner from "../../components/Spinner";
 import SnackBarError from "../../components/SnackBarError";
-import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { StyledCards } from "../styled";
+import literals from "../../stubs/literals.json";
 
 const Cards = () => {
   const isTablet = useMediaQuery("(min-width:1300px)");
@@ -18,7 +18,7 @@ const Cards = () => {
     <>
       <SnackBarError errorMessage={error} />
       <StyledCards isMobile={!isTablet} container spacing={2}>
-        {cards &&
+        {cards ? (
           cards.map((card) => (
             <Grid
               item
@@ -30,7 +30,14 @@ const Cards = () => {
             >
               <GeneralInfoCard card={card} />
             </Grid>
-          ))}
+          ))
+        ) : (
+          <Grid container justifyContent='center'>
+            <Typography variant='body1'>
+              {literals.sc_CARD_AVAILABLE}
+            </Typography>
+          </Grid>
+        )}
       </StyledCards>
     </>
   );

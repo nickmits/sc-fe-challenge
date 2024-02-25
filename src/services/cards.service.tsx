@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { useCards } from "../context";
 import { ICard } from "../interfaces/card";
+import literals from "../stubs/literals.json";
 
 export const useCardsService = () => {
   const [error, setError] = useState("");
   const [loadingCards, setLoadingCards] = useState(false);
-  const [cards, setCards] = useState<ICard[]>([]);
+  const [cards, setCards] = useState<ICard[]>();
 
   const { setOpenSnackbar } = useCards();
 
@@ -19,7 +20,7 @@ export const useCardsService = () => {
       })
       .catch((err) => {
         setLoadingCards(false);
-        setError("Failed retrieving cards");
+        setError(literals.sc_ERROR_CARDS);
         setOpenSnackbar(true);
       });
   }, [setLoadingCards, setCards, setOpenSnackbar]);

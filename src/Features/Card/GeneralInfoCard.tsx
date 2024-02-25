@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import { ICard } from "../../interfaces/card";
 import {
-  BoldTypography,
   CardContentTypography,
   CompanyTypography,
   EmailTypography,
@@ -13,6 +12,7 @@ import {
 } from "../styled";
 import { CardMedia, Grid, useMediaQuery } from "@mui/material";
 import ModalCard from "../Modal/ModalCard";
+import literals from "../../stubs/literals.json";
 
 const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
   const isMobile = useMediaQuery("(max-width:350px)");
@@ -29,7 +29,7 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
         <StyledBreakWords isMobile={isMobile} container>
           <Grid item xs={12} md={"auto"}>
             <Typography variant='body2' color='text.secondary'>
-              company:
+              {literals.sc_COMPANY}
             </Typography>
           </Grid>
           <Grid item xs={12} md>
@@ -46,7 +46,7 @@ const GeneralInfoCard: React.FC<{ card: ICard }> = ({ card }) => {
         <StyledBreakWords container>
           <Grid item xs={12} md={"auto"}>
             <Typography variant='body2' color='text.secondary'>
-              email:
+              {literals.sc_EMAIL}
             </Typography>
           </Grid>
           <Grid item xs={12} md>

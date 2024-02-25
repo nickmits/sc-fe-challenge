@@ -3,6 +3,7 @@ import { Modal, Typography, IconButton, Grid } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { ICard } from "../../interfaces/card";
 import { ModalGeneralInfo, StyledBoxModal } from "../styled";
+import literals from "../../stubs/literals.json";
 
 const ModalCard: React.FC<{
   card: ICard;
@@ -69,7 +70,7 @@ const ModalCard: React.FC<{
               }}
               variant='body1'
             >
-              Username:
+              {literals.sc_USERNAME}
             </Typography>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
@@ -83,7 +84,7 @@ const ModalCard: React.FC<{
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
             >
-              Address:
+              {literals.sc_ADDRESS}
             </Typography>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
@@ -109,7 +110,7 @@ const ModalCard: React.FC<{
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
             >
-              Phone:
+              {literals.sc_PHONE}
             </Typography>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
@@ -133,7 +134,7 @@ const ModalCard: React.FC<{
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
             >
-              Email:
+              {literals.sc_MAIL}
             </Typography>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}
@@ -145,7 +146,7 @@ const ModalCard: React.FC<{
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
             >
-              Website:
+              {literals.sc_WEBSITE}
             </Typography>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightLight }}

@@ -1,0 +1,16 @@
+{
+  "sc_COMPANY": "company:",
+  "sc_EMAIL": "email:",
+  "sc_CHALLENGE": "challenge by",
+  "sc_SPEEDCAST": "speedcast",
+  "sc_HEADER_1": "CSS, Javascript, API",
+  "sc_HEADER_2": "Contacts Application",
+  "sc_HEADER_3": " View basic info of contacts in a 3x2 layout. Click on the magnifier icon to open a modal and view detailed contact info contact.",
+  "sc_USERNAME": "Username:",
+  "sc_ADDRESS": "Address:",
+  "sc_PHONE": "Phone:",
+  "sc_MAIL": "Email:",
+  "sc_WEBSITE": "Website:",
+  "sc_ERROR_CARDS": "Failed retrieving cards",
+  "sc_CARD_AVAILABLE": "No cards available"
+}
