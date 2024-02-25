@@ -28,7 +28,7 @@ const ModalCard: React.FC<{
     >
       <StyledBoxModal>
         <ModalGeneralInfo container>
-          <Grid container flexDirection={"column"} item xs={6}>
+          <Grid container flexDirection={"column"} item xs={9} md={6}>
             <CardNameModal id='modal-title' variant='h6' color='text.primary'>
               {card.name}
             </CardNameModal>
@@ -38,7 +38,8 @@ const ModalCard: React.FC<{
           </Grid>
           <CloseIconStyled
             item
-            xs={6}
+            xs={3}
+            md={6}
             display={"flex"}
             justifyContent={"flex-end"}
           >
