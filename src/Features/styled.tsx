@@ -37,12 +37,13 @@ export const StyledCardContent = styled(CardContent)({
 
 export const StyledBoxModal = styled(Box)(({ theme }) => ({
   position: "absolute",
-  top: "20%",
+  top: "40%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "100%",
+
   border: "2px solid #000",
-  overflowY: "auto",
+  width: "50%",
+  [theme.breakpoints.down("sm")]: { width: "70%" },
   backgroundColor: theme.palette.background.paper,
   borderBottom: `5px solid ${theme.palette.primary.main}`,
 }));

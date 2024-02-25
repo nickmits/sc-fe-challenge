@@ -60,11 +60,13 @@ const ModalCard: React.FC<{
           textAlign={"center"}
           spacing={2}
           container
-          paddingRight={"40px"}
         >
-          <Grid container flexDirection={"column"} item xs={3}>
+          <Grid container flexDirection={"column"} item xs={12} sm={6} md={3}>
             <Typography
-              sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
+              sx={{
+                textAlign: "center",
+                fontWeight: (theme) => theme.typography.fontWeightBold,
+              }}
               variant='body1'
             >
               Username:
@@ -76,7 +78,7 @@ const ModalCard: React.FC<{
               {card.username}
             </Typography>
           </Grid>
-          <Grid container flexDirection={"column"} item xs={3}>
+          <Grid container flexDirection={"column"} item xs={12} sm={6} md={3}>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
@@ -102,7 +104,7 @@ const ModalCard: React.FC<{
               {card.address.suite}
             </Typography>
           </Grid>
-          <Grid container flexDirection={"column"} item xs={3}>
+          <Grid container flexDirection={"column"} item xs={12} sm={6} md={3}>
             <Typography
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
@@ -116,8 +118,18 @@ const ModalCard: React.FC<{
               {card.phone}
             </Typography>
           </Grid>
-          <Grid container flexDirection={"column"} item xs={3}>
+          <Grid
+            display={"flex"}
+            justifyContent={"center"}
+            container
+            flexDirection={"column"}
+            item
+            xs={12}
+            sm={6}
+            md={3}
+          >
             <Typography
+              textAlign={"center"}
               sx={{ fontWeight: (theme) => theme.typography.fontWeightBold }}
               variant='body1'
             >
