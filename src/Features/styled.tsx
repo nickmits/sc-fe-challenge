@@ -42,8 +42,39 @@ export const StyledBoxModal = styled(Box)(({ theme }) => ({
   transform: "translate(-50%, -50%)",
 
   border: "2px solid #000",
-  width: "50%",
-  [theme.breakpoints.down("sm")]: { width: "70%" },
+  width: "40%",
+  wordBreak: "break-all",
+  animationDuration: "2000ms",
+  animationName: "fadeInModal",
+  "@keyframes fadeInModal": {
+    "0%": {
+      opacity: 0,
+      transform: "translate(-50%, -50%)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translate(-50%, -50%)",
+    },
+  },
+  // "@keyframes slideLeft": {
+  //   from: {
+  //     transform: "translateX(300%)",
+  //   },
+  // },
+
+  // "@keyframes slideRight": {
+  //   to: {
+  //     transform: "translateX(300%)",
+  //   },
+  // },
+
+  // "@keyframes shrink": {
+  //   "50%": {
+  //     transform: "scale(1,0)",
+  //   },
+  // },
+
+  [theme.breakpoints.down("sm")]: { width: "70%", marginTop: "20%" },
   backgroundColor: theme.palette.background.paper,
   borderBottom: `5px solid ${theme.palette.primary.main}`,
 }));
